@@ -5,10 +5,10 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.SourceDataLine;
 
 public class PlaySound implements Runnable{
-	
+
 	private Jack in;
 	private int sampleRate = 48000;
-	
+
 	public PlaySound(Jack in){
 		this.in = in;
 	}
@@ -22,18 +22,29 @@ public class PlaySound implements Runnable{
             line.start();
             //line.write(new byte[]{Byte.MIN_VALUE,Byte.MAX_VALUE}, 0, 2);
             //play Frequency = 200 Hz for 1 seconds
+
+						byte[] wave = new byte[48000];
+
+						while(true){
+							for (int i = 0; i < 48000; i++) {
+								wave[i] = (byte) (in.getValue((2.0 * Math.PI * i)/120) * 127);
+							}
+							line.write(wave, 0, wave.length);
+						}
+
+						/*
             play(line, generateSineWavefreq(400,1));
             //line.drain();
             Thread.sleep(1000);
             Thread thread = new Thread(new PlaySound(in), "PlaySound");
-    		thread.start();
+    				thread.start();
             line.close();
-            
+						*/
         } catch (Exception e) {
             e.printStackTrace();
         }
 	}
-	
+
 	private byte[] generateSineWavefreq(int frequencyOfSignal, int seconds) {
         // total samples = (duration in second) * (samples per second)
         byte[] sin = new byte[seconds * sampleRate];

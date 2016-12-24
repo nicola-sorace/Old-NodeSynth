@@ -11,17 +11,17 @@ public class Output extends Node{
 		width = 75;
 		height = 75;
 		name = "Output";
-		
+
 		ins = new Jack[]{
-				new Jack("")
+				new Jack("", 0, 0, 0)
 		};
-		
+
 		Thread thread = new Thread(new PlaySound(ins[0]), "PlaySound");
 		thread.start();
 	}
-	
+
 	public double function(int output, double t){
 		return 0;
 	}
-	
+
 }
