@@ -5,7 +5,7 @@ A nodal interface, written in Java, for creating synthesised instruments. It all
  * Apache Ant - Required to build application using included shell scripts.
  
 # Compiling
-The shell script 'compile.sh' builds the application and produces an executable 'NodeSynth.jar' file (located under /build/jar).
+The shell script 'compile.sh' builds the application and produces an executable 'NodeSynth.jar' file.
 
 The shell script 'run.sh' can then be used to run the application. Alternatively, 'updateAndRun.sh' automatically compiles and then runs the application.
 

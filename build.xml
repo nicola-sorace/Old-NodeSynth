@@ -11,7 +11,7 @@
 
     <target name="jar">
         <mkdir dir="build/jar"/>
-        <jar destfile="build/jar/NodeSynth.jar" basedir="build/classes">
+        <jar destfile="NodeSynth.jar" basedir="build/classes">
             <manifest>
                 <attribute name="Main-Class" value="core.Main"/>
             </manifest>
@@ -19,7 +19,7 @@
     </target>
 
     <target name="run">
-        <java jar="build/jar/NodeSynth.jar" fork="true"/>
+        <java jar="NodeSynth.jar" fork="true"/>
     </target>
 
 </project>

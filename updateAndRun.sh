@@ -1,2 +1,2 @@
 #!/bin/bash
-ant compile jar run
+ant compile jar clean run
